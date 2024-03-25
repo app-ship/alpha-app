@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Processing...</title>
+  <style>
+    .progress-container {
+      width: 50%;
+      background-color: #eee;
+      padding: 3px;
+      border-radius: 8px;
+      margin: auto;
+      position: relative;
+      top: 20%;
+    }
+    .progress-bar {
+      background-color: #007BFF;
+      width: 1%;
+      height: 30px;
+      border-radius: 5px;
+    }
+    body {
+      text-align: center;
+    }
+  </style>
+</head>
+<body onload="move()">
+  <h2>Your App is Apping by our Robots...</h2>
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <script>
+    function move() {
+        const elem = document.getElementById("progress-bar");
+        let width = 1;
+        const id = setInterval(frame, 300);
+
+        function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          window.location.href = "/results"; // Redirect when progress is complete
+        } else {
+          width++;
+          elem.style.width = width + '%';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
